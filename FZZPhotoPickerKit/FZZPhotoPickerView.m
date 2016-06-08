@@ -28,7 +28,6 @@ UICollectionViewDataSource
     if (self) {
         //初期化
         self.backgroundColor = [UIColor clearColor];
-        self.imageAssets = [self fetchAssetsOfSmartAlbumWithSubtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary];
         self.cellWidth = [self getCellWidth];
         
         UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
@@ -42,13 +41,19 @@ UICollectionViewDataSource
         self.collectionView.dataSource = self;
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
         [self addSubview:self.collectionView];
-        [self.collectionView reloadData];
+        
+        [self updateContents];
     }
     return self;
 }
 
 - (void)updateFrame:(CGRect)frame{
     self.collectionView.frame = frame;
+}
+
+- (void)updateContents{
+    self.imageAssets = [self fetchAssetsOfSmartAlbumWithSubtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary];
+    [self.collectionView reloadData];
 }
 
 - (PHFetchResult *)fetchAssetsOfSmartAlbumWithSubtype:(PHAssetCollectionSubtype)subtype{

@@ -17,6 +17,7 @@
 @property (nonatomic, weak) id<FZZPhotoPickerViewDelegate> delegate;
 
 - (void)updateFrame:(CGRect)frame;
+- (void)updateContents;
 
 @end
 
