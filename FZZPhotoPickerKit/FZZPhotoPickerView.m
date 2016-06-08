@@ -35,7 +35,7 @@ UICollectionViewDataSource
         layout.minimumLineSpacing = 1.0f;
         layout.itemSize = CGSizeMake(self.cellWidth,self.cellWidth);
         
-        self.collectionView = [[UICollectionView alloc] initWithFrame:frame
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width,self.frame.size.height)
                                                  collectionViewLayout:layout];
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
@@ -48,7 +48,7 @@ UICollectionViewDataSource
 }
 
 - (void)updateFrame:(CGRect)frame{
-    self.collectionView.frame = frame;
+    self.frame = frame;
 }
 
 - (void)updateContents{
