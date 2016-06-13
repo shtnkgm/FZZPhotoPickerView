@@ -18,6 +18,7 @@
 
 - (void)updateFrame:(CGRect)frame;
 - (void)updateContents;
+- (NSUInteger)photoCount;
 
 @end
 

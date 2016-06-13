@@ -15,8 +15,8 @@ UICollectionViewDelegate,
 UICollectionViewDataSource
 >
 
-@property (nonatomic, strong) UICollectionView *collectionView;
 @property (strong, nonatomic) PHFetchResult *imageAssets;
+@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, assign) CGFloat cellWidth;
 
 @end
@@ -55,6 +55,10 @@ UICollectionViewDataSource
 - (void)updateContents{
     self.imageAssets = [self fetchAssetsOfSmartAlbumWithSubtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary];
     [self.collectionView reloadData];
+}
+
+- (NSUInteger)photoCount{
+    return self.imageAssets.count;
 }
 
 - (PHFetchResult *)fetchAssetsOfSmartAlbumWithSubtype:(PHAssetCollectionSubtype)subtype{
