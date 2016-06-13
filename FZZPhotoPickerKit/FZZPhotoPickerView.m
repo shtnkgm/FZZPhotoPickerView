@@ -113,7 +113,6 @@ UICollectionViewDataSource
                                                   options:options
                                             resultHandler:^(UIImage *result, NSDictionary *info) {
                                                 if (result) {
-                                                    //NSLog(@"%f",result.size.width);
                                                     imageView.image = result;
                                                 }else{
                                                     NSLog(@"No Image");
@@ -132,7 +131,7 @@ UICollectionViewDataSource
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
     
-    [UIView animateWithDuration:0.2
+    [UIView animateWithDuration:0.1
                           delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
@@ -145,7 +144,7 @@ UICollectionViewDataSource
 - (void)collectionView:(UICollectionView *)colView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell* cell = [colView cellForItemAtIndexPath:indexPath];
     
-    [UIView animateWithDuration:0.3
+    [UIView animateWithDuration:0.5
                           delay:0.3
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
