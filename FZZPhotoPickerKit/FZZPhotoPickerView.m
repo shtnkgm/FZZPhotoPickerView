@@ -70,12 +70,16 @@ UICollectionViewDataSource
     //写真の数が変わったら
     if(before != self.imageAssets.count){
         //一番下までスクロールする
-        NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:self.imageAssets.count-1 inSection:0];
-        [self.collectionView scrollToItemAtIndexPath:lastIndexPath
-                                    atScrollPosition:UICollectionViewScrollPositionBottom
-                                            animated:NO];
+        [self scrollToBottom];
     }
    
+}
+
+- (void)scrollToBottom{
+    NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:self.imageAssets.count-1 inSection:0];
+    [self.collectionView scrollToItemAtIndexPath:lastIndexPath
+                                atScrollPosition:UICollectionViewScrollPositionBottom
+                                        animated:NO];
 }
 
 - (NSUInteger)photoCount{

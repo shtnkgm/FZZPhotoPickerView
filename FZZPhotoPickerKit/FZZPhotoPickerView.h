@@ -18,6 +18,7 @@
 
 - (void)updateFrame:(CGRect)frame sectionInset:(UIEdgeInsets)inset;
 - (void)updateContents;
+- (void)scrollToBottom;
 - (NSUInteger)photoCount;
 
 @end
