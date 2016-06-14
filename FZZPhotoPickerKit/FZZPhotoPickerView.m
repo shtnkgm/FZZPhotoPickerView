@@ -61,8 +61,21 @@ UICollectionViewDataSource
 }
 
 - (void)updateContents{
+    NSUInteger before = self.imageAssets.count;
+    
     self.imageAssets = [self fetchAssetsOfSmartAlbumWithSubtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary];
+    
     [self.collectionView reloadData];
+    
+    //写真の数が変わったら
+    if(before != self.imageAssets.count){
+        //一番下までスクロールする
+        NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:self.imageAssets.count-1 inSection:0];
+        [self.collectionView scrollToItemAtIndexPath:lastIndexPath
+                                    atScrollPosition:UICollectionViewScrollPositionBottom
+                                            animated:NO];
+    }
+   
 }
 
 - (NSUInteger)photoCount{
@@ -116,8 +129,8 @@ UICollectionViewDataSource
     CGFloat retina = [[UIScreen mainScreen] scale];
     CGFloat imageWidth = self.cellWidth * retina;
     
-    //逆順で取得する(self.imageAssets.count - indexPath.row - 1)
-    PHAsset * asset = self.imageAssets[self.imageAssets.count - indexPath.row - 1];
+
+    PHAsset * asset = self.imageAssets[indexPath.row];
     
     //アセットから画像を取得
     [[PHImageManager defaultManager] requestImageForAsset:asset
@@ -169,8 +182,7 @@ UICollectionViewDataSource
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    //逆順で取得する(self.imageAssets.count - indexPath.row - 1)
-    PHAsset *asset = self.imageAssets[self.imageAssets.count - indexPath.row - 1];
+    PHAsset *asset = self.imageAssets[indexPath.row];
     [self.delegate FZZPhotoPickerView:self didGetAsset:asset];
 }
 
