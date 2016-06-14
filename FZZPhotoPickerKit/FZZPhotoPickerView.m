@@ -71,7 +71,7 @@ UICollectionViewDataSource
     }
     
     PHFetchOptions *fetchOptions = [PHFetchOptions new];
-    fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+    //fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
     fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeImage];
     
     return [PHAsset fetchAssetsInAssetCollection:assetCollections.firstObject options:fetchOptions];
@@ -108,7 +108,8 @@ UICollectionViewDataSource
     CGFloat retina = [[UIScreen mainScreen] scale];
     CGFloat imageWidth = self.cellWidth * retina;
     
-    PHAsset * asset = self.imageAssets[indexPath.row];
+    //逆順で取得する(self.imageAssets.count - indexPath.row - 1)
+    PHAsset * asset = self.imageAssets[self.imageAssets.count - indexPath.row - 1];
     
     //アセットから画像を取得
     [[PHImageManager defaultManager] requestImageForAsset:asset
@@ -160,7 +161,8 @@ UICollectionViewDataSource
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    PHAsset *asset = self.imageAssets[indexPath.row];
+    //逆順で取得する(self.imageAssets.count - indexPath.row - 1)
+    PHAsset *asset = self.imageAssets[self.imageAssets.count - indexPath.row - 1];
     [self.delegate FZZPhotoPickerView:self didGetAsset:asset];
 }
 
