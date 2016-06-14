@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "FZZPhotoPickerView"
-s.version      = "0.0.13"
+s.version      = "0.0.14"
 s.summary      = "PhotosKitを使ってカメラロールの静止画Assetを取得するビュー"
 s.homepage     = "http://shtnkgm.github.io/"
 s.license      = { :type => "MIT", :file => "LICENSE.txt" }
