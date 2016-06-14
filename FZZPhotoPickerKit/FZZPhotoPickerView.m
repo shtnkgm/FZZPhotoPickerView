@@ -39,6 +39,7 @@ UICollectionViewDataSource
                                                  collectionViewLayout:layout];
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
+        self.collectionView.backgroundColor = [UIColor clearColor];
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
         [self addSubview:self.collectionView];
         
