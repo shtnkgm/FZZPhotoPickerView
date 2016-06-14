@@ -47,8 +47,16 @@ UICollectionViewDataSource
     return self;
 }
 
-- (void)updateFrame:(CGRect)frame{
+- (void)updateFrame:(CGRect)frame sectionInset:(UIEdgeInsets)inset{
     self.frame = frame;
+    
+    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+    layout.minimumInteritemSpacing = 1.0f;
+    layout.minimumLineSpacing = 1.0f;
+    layout.itemSize = CGSizeMake(self.cellWidth,self.cellWidth);
+    layout.sectionInset = inset;
+    
+    [self.collectionView setCollectionViewLayout:layout];
     self.collectionView.frame = CGRectMake(0, 0, self.frame.size.width,self.frame.size.height);
 }
 

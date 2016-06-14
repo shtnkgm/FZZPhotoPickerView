@@ -29,7 +29,7 @@
 }
 
 - (void)viewDidLayoutSubviews{
-    [self.photoPickerView updateFrame:self.view.bounds];
+    [self.photoPickerView updateFrame:self.view.bounds sectionInset:UIEdgeInsetsZero];
 }
 
 - (void)didReceiveMemoryWarning {

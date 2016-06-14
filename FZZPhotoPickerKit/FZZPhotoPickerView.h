@@ -16,7 +16,7 @@
 
 @property (nonatomic, weak) id<FZZPhotoPickerViewDelegate> delegate;
 
-- (void)updateFrame:(CGRect)frame;
+- (void)updateFrame:(CGRect)frame sectionInset:(UIEdgeInsets)inset;
 - (void)updateContents;
 - (NSUInteger)photoCount;
 
