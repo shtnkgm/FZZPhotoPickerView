@@ -78,6 +78,9 @@ UICollectionViewDataSource
 }
 
 - (void)scrollToBottom{
+    if(self.imageAssets.count == 0){
+        return;
+    }
     NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:self.imageAssets.count-1 inSection:0];
     [self.collectionView scrollToItemAtIndexPath:lastIndexPath
                                 atScrollPosition:UICollectionViewScrollPositionBottom
