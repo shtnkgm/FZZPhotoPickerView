@@ -16,7 +16,6 @@ UICollectionViewDataSource
 >
 
 @property (strong, nonatomic) PHFetchResult *imageAssets;
-@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, assign) CGFloat cellWidth;
 
 @end
@@ -76,6 +75,8 @@ UICollectionViewDataSource
     }
    
 }
+
+
 
 - (void)scrollToBottom{
     if(self.imageAssets.count == 0){
@@ -203,7 +204,5 @@ UICollectionViewDataSource
     CGFloat cellWidth = (screenSize.size.width - borderWidth * (divisionNumber - 1)) / divisionNumber;
     return cellWidth;
 }
-
-
 
 @end

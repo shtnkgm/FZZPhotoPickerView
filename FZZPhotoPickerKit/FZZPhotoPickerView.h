@@ -14,6 +14,7 @@
 
 @interface FZZPhotoPickerView : UIView
 
+@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, weak) id<FZZPhotoPickerViewDelegate> delegate;
 
 - (void)updateFrame:(CGRect)frame sectionInset:(UIEdgeInsets)inset;
